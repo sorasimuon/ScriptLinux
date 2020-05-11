@@ -34,7 +34,7 @@ def _run_check_df():
     print("Singleshot : {}".format(options.singleshot))
 
     # Run check_df function
-    run_df(options.threshold, options.singleshot, options.mailbox)
+    run_df(options)
 ##### MAIN ####
 
 if __name__ == "__main__":
