@@ -15,7 +15,6 @@ def run_df(options):
             list_fs[fs_line[0]] = int(fs_line[4][:-1])
 
     # Print the result to stdout
-    print(header)
     for k,v in list_fs.items():
         if v > options.threshold:
             print("CRITICAL >> {} is {}% full.".format(k,v))
