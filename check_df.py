@@ -1,8 +1,6 @@
-#!/usr/bin/python
-
 from subprocess import Popen, PIPE
 
-def run_df():
+def run_df(options):
     df = Popen(["df", "-h"], stdout=PIPE)
     list_fs = {}
     for bytes in df.stdout:
@@ -19,8 +17,9 @@ def run_df():
     # Print the result to stdout
     print(header)
     for k,v in list_fs.items():
-        print("{} is {}% full.".format(k,v))
-        
+        if v > options.threshold:
+            print("CRITICAL >> {} is {}% full.".format(k,v))
+
 
 
 
